@@ -1,0 +1,54 @@
+﻿@model Huertos_Autosustentables.Models.Cultivo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cultivo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreCultivos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreCultivos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IntroduccionCultivos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IntroduccionCultivos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CuerpoCultivos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CuerpoCultivos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RecomendacionesCultivos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RecomendacionesCultivos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdTipoCultivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdTipoCultivo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdRegiones)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdRegiones)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdCultivos">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,42 @@
+﻿@model Huertos_Autosustentables.Models.DetalleUsersCultivo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DetalleUsersCultivo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MetrosCuadradosDetalle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MetrosCuadradosDetalle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecioSemillasDetalle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecioSemillasDetalle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LugarCultivoDetalle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LugarCultivoDetalle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdCultivo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdCultivo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdDetalle">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

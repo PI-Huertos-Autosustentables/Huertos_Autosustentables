@@ -1,0 +1,59 @@
+﻿@using Huertos_Autosustentables.Models;
+@model EdicionRol
+
+<h1 class="text-center">Actualizar Rol</h1>
+
+<form method="post" asp-action="Update">
+    <input type="hidden" name="RoleName" value="@Model.Rol.Name" />
+    <input type="hidden" name="RoleId" value="@Model.Rol.Id" />
+    <ul>
+        <li class="font-weight-bold"> Anadir a @Model.Rol.Name</li> 
+    </ul>
+    <br />
+    <table class="table table-dark table-striped ">
+
+        <thead>
+            <tr>
+                <th class="text-center">Correo Registrado</th>
+
+                <th class="text-center">Accesiblidad ☑</th>
+            </tr>
+        </thead>
+        @foreach (var usuario in Model.NoMiembros)
+        {
+            <tbody>
+                <tr>
+                    <td>@usuario.UserName</td>
+                    <td> <input type="checkbox" value="@usuario.Id" name="AumentarIds" /> </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    <ul>
+        <li class="font-weight-bold">Remover de @Model.Rol.Name  </li>
+    </ul>
+    <br />
+    <table class="table table-dark table-striped">
+
+        <thead>
+            <tr>
+                <th class="text-center">Correo Registrado</th>
+
+                <th class="text-center">Accesiblidad ☑</th>
+            </tr>
+        </thead>
+        @foreach (var usuario in Model.Miembros)
+        {
+            <tbody>
+                <tr>
+                    <td>@usuario.UserName</td>
+                    <td> <input type="checkbox" value="@usuario.Id" name="BorrarIds" /> </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    <input type="submit" value="Grabar" class="btn btn-primary float-right" />
+
+</form>
+<a asp-action="Index" class="btn btn-secondary">Regresar</a>
+<div asp-validation-summary="All" class="text-danger"></div>

@@ -1,0 +1,31 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Confirmación de registro";
+}
+<div class="w-50 mx-auto rounded shadow-lg p-3 mb-5 rounded bg-light">
+    <div class="w-75 mx-auto">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        @{
+            if (@Model.DisplayConfirmAccountLink)
+            {
+                <br />
+                <h4 class="text-center">Bienvenido</h4>
+                <img src="~/img/img.jpg" alt="Imagen no encontrada" class=" h-50 w-50 border border-info rounded mx-auto d-block" >
+                <p class="text-justify">
+                    <a id="confirm-link" href="@Model.EmailConfirmationUrl">Haga clic aquí para confirmar su cuenta.</a>
+                    <br /><br />
+                    Cultiva los alimentos que desees con nuestra ayuda al mismo tiempo que cuidamos tu bosillo
+                    y tu salud para prevenir más contagios.
+                </p>
+                <p class="text-center">#Quédate en Casa</p>
+            }
+            else
+            {
+                <p>
+                    Por favor revise su correo electrónico para confirmar su cuenta.
+                </p>
+            }
+        }
+    </div>
+</div>

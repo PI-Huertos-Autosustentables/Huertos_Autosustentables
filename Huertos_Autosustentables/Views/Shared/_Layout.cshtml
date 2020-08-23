@@ -1,0 +1,97 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Huertos</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/CssUsuarioPrin/Usuarioprincipal.css" />
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom shadow-lg mb-3 bg-bluegray  rounded-bottom">
+            <div class="container font-weight-light">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="fab fa-pagelines"></i>HUERTOS <br /> AUTOSUSTENTABLES</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse p-2">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <div class="btn-outline-secondary rounded">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> &nbsp;Inicio</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="btn-outline-secondary rounded">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Recomendaciones"><i class="fas fa-list-alt"></i> &nbsp;Recomendaciones</a>
+                            </div>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Detalles" asp-action="Index">Detalles</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Cultivos" asp-action="Index">Cultivos</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Regiones" asp-action="Index">Regiones</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Tipos" asp-action="Index">Tipos</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Climas" asp-action="Index">Climas</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <footer class="footer  bg-bluegray font-weight-light text-center">
+        <div class="d-sm-inline-flex text-white p-2">
+            <a class="nav-link text-white">&copy; 2020 - Huertos Autosustentables &nbsp;</a>
+            <a class="nav-link text-white" asp-controller="Home">&nbsp;Galapagos</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Costa</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Sierra</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Amazonia</a>&nbsp;&nbsp;&nbsp;
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
