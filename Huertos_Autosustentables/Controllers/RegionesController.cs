@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Huertos_Autosustentables.Controllers
 {
     public class RegionesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public RegionesController(ApplicationDbContext context)
+        public RegionesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Regiones
@@ -55,10 +59,23 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdRegiones,NombreRegiones,CaracterisitcasRegiones,IdClima")] Region region)
+        public async Task<IActionResult> Create(Region region)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(region.ImageFile.FileName);
+                string extension = Path.GetExtension(region.ImageFile.FileName);
+
+                //guarda el nombre de la imagen (ImageName)
+                region.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+
+                string path = Path.Combine(wwwRootPath + "/img/region", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await region.ImageFile.CopyToAsync(fileStream);
+                }
+
                 _context.Add(region);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -141,6 +158,11 @@ namespace Huertos_Autosustentables.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var region = await _context.Region.FindAsync(id);
+
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/region", region.ImageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
             _context.Region.Remove(region);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

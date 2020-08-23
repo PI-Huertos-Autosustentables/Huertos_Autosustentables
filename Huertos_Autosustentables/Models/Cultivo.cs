@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,6 +31,14 @@ namespace Huertos_Autosustentables.Models
         [DisplayName("Recomendaciones : ")]
         [Required(ErrorMessage = "Este campo es obligarorio")]
         public string RecomendacionesCultivos { get; set; }
+
+        [NotMapped]
+        [DisplayName("Imagen :")]
+        public IFormFile ImageFile { get; set; }
+
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("Imagen")]
+        public string ImageName { get; set; }
 
         //Relaciones
         [ForeignKey("Tipo Cultivo")]

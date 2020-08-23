@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Huertos_Autosustentables.Controllers
 {
     public class ClimasController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ClimasController(ApplicationDbContext context)
+        public ClimasController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Climas
@@ -54,10 +58,24 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdClima,NombreClima,CaracteristicasClima")] Clima clima)
+        public async Task<IActionResult> Create(Clima clima)
         {
             if (ModelState.IsValid)
             {
+                //guarda la imagen en wwwroot/image
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(clima.ImageFile.FileName);
+                string extension = Path.GetExtension(clima.ImageFile.FileName);
+
+                //guarda el nombre de la imagen (ImageName)
+                clima.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+
+                string path = Path.Combine(wwwRootPath + "/img/clima", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await clima.ImageFile.CopyToAsync(fileStream);
+                }
+
                 _context.Add(clima);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -140,6 +158,11 @@ namespace Huertos_Autosustentables.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var clima = await _context.Clima.FindAsync(id);
+
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/clima/", clima.ImageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
             _context.Clima.Remove(clima);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -10,18 +10,24 @@
     <h4>Clima</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NombreClima)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NombreClima)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CaracteristicasClima)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CaracteristicasClima)
         </dd>
+        <dd class="col-auto w-25 h-25 font-weight-bold">
+            Imagen Cargada :
+        </dd>
+        <dt class="col-auto w-25 h-25">
+            <img src="@("/img/clima/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50" />
+        </dt>
     </dl>
 </div>
 <div>

@@ -4,14 +4,16 @@ using Huertos_Autosustentables.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Huertos_Autosustentables.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200823225724_ImgClima")]
+    partial class ImgClima
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,9 +66,6 @@ namespace Huertos_Autosustentables.Data.Migrations
 
                     b.Property<int>("IdTipoCultivo")
                         .HasColumnType("int");
-
-                    b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("IntroduccionCultivos")
                         .IsRequired()
@@ -140,9 +139,6 @@ namespace Huertos_Autosustentables.Data.Migrations
                     b.Property<int>("IdClima")
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("NombreRegiones")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
@@ -163,9 +159,6 @@ namespace Huertos_Autosustentables.Data.Migrations
 
                     b.Property<string>("CaracteristicasTipoCultivos")
                         .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("NombreTipoCultivos")
                         .IsRequired()
