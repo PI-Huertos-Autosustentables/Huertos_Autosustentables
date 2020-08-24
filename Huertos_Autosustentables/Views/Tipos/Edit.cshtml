@@ -23,6 +23,13 @@
                 <input asp-for="CaracteristicasTipoCultivos" class="form-control" />
                 <span asp-validation-for="CaracteristicasTipoCultivos" class="text-danger"></span>
             </div>
+            <div class="col h-25">
+                Imagen Cargada :
+            </div>
+            <div class="col h-25">
+                <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
+            </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

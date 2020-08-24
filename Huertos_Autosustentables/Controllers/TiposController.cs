@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System;
 
 namespace Huertos_Autosustentables.Controllers
 {
@@ -12,10 +15,12 @@ namespace Huertos_Autosustentables.Controllers
     public class TiposController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public TiposController(ApplicationDbContext context)
+        public TiposController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Tipos
@@ -53,10 +58,23 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdTipoCultivo,NombreTipoCultivos,CaracteristicasTipoCultivos")] TipoCultivo tipoCultivo)
+        public async Task<IActionResult> Create(TipoCultivo tipoCultivo)
         {
             if (ModelState.IsValid)
             {
+                //guarda la imagen en wwwroot/image
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(tipoCultivo.ImageFile.FileName);
+                string extension = Path.GetExtension(tipoCultivo.ImageFile.FileName);
+
+                //guarda el nombre de la imagen (ImageName)
+                tipoCultivo.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+
+                string path = Path.Combine(wwwRootPath + "/img/tipo", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await tipoCultivo.ImageFile.CopyToAsync(fileStream);
+                }
                 _context.Add(tipoCultivo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -139,6 +157,11 @@ namespace Huertos_Autosustentables.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var tipoCultivo = await _context.TipoCultivo.FindAsync(id);
+
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/tipo/", tipoCultivo.ImageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
             _context.TipoCultivo.Remove(tipoCultivo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

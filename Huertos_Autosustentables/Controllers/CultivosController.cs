@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Huertos_Autosustentables.Controllers
 {
     public class CultivosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public CultivosController(ApplicationDbContext context)
+        public CultivosController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Cultivos
@@ -57,10 +61,23 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCultivos,NombreCultivos,IntroduccionCultivos,CuerpoCultivos,RecomendacionesCultivos,IdTipoCultivo,IdRegiones")] Cultivo cultivo)
+        public async Task<IActionResult> Create(Cultivo cultivo)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(cultivo.ImageFile.FileName);
+                string extension = Path.GetExtension(cultivo.ImageFile.FileName);
+
+                //guarda el nombre de la imagen (ImageName)
+                cultivo.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+
+                string path = Path.Combine(wwwRootPath + "/img/cultivo", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await cultivo.ImageFile.CopyToAsync(fileStream);
+                }
+
                 _context.Add(cultivo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -143,6 +160,11 @@ namespace Huertos_Autosustentables.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cultivo = await _context.Cultivo.FindAsync(id);
+
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/cultivo/", cultivo.ImageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
             _context.Cultivo.Remove(cultivo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

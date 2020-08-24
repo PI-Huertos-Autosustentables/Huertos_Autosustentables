@@ -11,18 +11,24 @@
     <h4>TipoCultivo</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NombreTipoCultivos)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NombreTipoCultivos)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CaracteristicasTipoCultivos)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CaracteristicasTipoCultivos)
         </dd>
+        <dd class="col-auto w-25 h-25 font-weight-bold">
+            Imagen Cargada :
+        </dd>
+        <dt class="col-auto w-25 h-25">
+            <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50" />
+        </dt>
     </dl>
     
     <form asp-action="Delete">
