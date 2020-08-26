@@ -14,6 +14,6 @@ PM> dotnet user-secrets set "Authentication:Google:ClientSecret" "F2nGapFgY3TiWs
 
 ==>FACEBOOK
 
-PM>dotnet user-secrets set "Authentication:Facebook:AppSecret" "269ad4275267dbf54c9bfc01d5b8e44b" --project Huertos_Autosustentables
+PM>dotnet user-secrets set "Authentication:Facebook:AppId" "303518354083853" --project Huertos_Autosustentables
 
-PM>dotnet user-secrets set "Authentication:Google:ClientId" "226674144274-51g360slqopepk510k14epdnhrm8jno8.apps.googleusercontent.com" --project Huertos_Autosustentables
+PM>dotnet user-secrets set "Authentication:Facebook:AppSecret" "848b675771dbbc3295c5ca02fcce8181" --project Huertos_Autosustentables
