@@ -21,6 +21,7 @@
     <Folder Include="wwwroot\carrusel\" />
     <Folder Include="wwwroot\img\clima\" />
     <Folder Include="wwwroot\img\cultivo\" />
+    <Folder Include="wwwroot\img\climas\" />
     <Folder Include="wwwroot\img\tipo\" />
     <Folder Include="wwwroot\img\region\" />
   </ItemGroup>

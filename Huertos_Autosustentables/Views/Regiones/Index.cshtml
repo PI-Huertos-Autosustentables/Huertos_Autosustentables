@@ -28,26 +28,59 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreRegiones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CaracterisitcasRegiones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdClima)
-            </td>
-            <td>
-                <img src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdRegiones">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdRegiones">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdRegiones">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreRegiones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaracterisitcasRegiones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdClima)
+                </td>
+                <td>
+                    <img src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdRegiones">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdRegiones">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdRegiones">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+    <div class="Titulo">
+        <h1 class="text-white  bg-dark">Regiones</h1>
+    </div>
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-body bg-dark text-white">
+                <h5 class="card-title">Costa</h5>
+            </div>
+            <a href="prueba.html"><img src="~/img/Imagenes/costa.jpeg" class="card-img-top" alt="..."></a>
+        </div>
+        <div class="card ">
+            <div class="card-body bg-dark text-white">
+                <h5 class="card-title">Sierra</h5>
+            </div>
+            <a href="prueba.html"><img src="~/img/Imagenes/sierra.jpeg" class="card-img-top" alt="..."></a>
+        </div>
+        <div class="card ">
+            <div class="card-body bg-dark text-white">
+                <h5 class="card-title">Amazonía</h5>
+            </div>
+            <a href="prueba.html"><img src="~/img/Imagenes/amazonia.jpeg" class="card-img-top" alt="..."></a>
+        </div>
+        <div class="card ">
+            <div class="card-body bg-dark text-white">
+                <h5 class="card-title">Galápagos</h5>
+            </div>
+            <a href="prueba.html"><img src="~/img/Imagenes/galapagos.jpeg" class="card-img-top" alt="..."></a>
+        </div>
+    </div>
+    <div class="mensaje">
+        <h2 class="text-white bg-dark">Cultiva dependiendo de la región en la que te encuentres</h2>
+    </div>

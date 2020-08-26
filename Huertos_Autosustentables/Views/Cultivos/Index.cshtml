@@ -4,12 +4,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h3>Te encuentras en Cultivos</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<!--Buscador y el boton de agregar-->
+
+<form class="form-inline" asp-controller="Cultivos" asp-action="Index" method="get">
+    <div class="form-group">
+        <input id="buscador" type="text" name="SearchString" placeholder="Buscar alimento">
+        <input id="boton" type="submit" value="Buscar" />
+    </div>
+</form>
+<div class="boton-agregar">
+    <a  asp-action="Create">Agregar nuevo cultivo</a>
+</div>
+
+<table class="table table-hover bg-light  table-bordered">
     <thead>
         <tr>
             <th>
@@ -33,39 +42,46 @@
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.ImageFile)
             </th>
-            <th></th>
+            <th>Editar</th>
+            <th>Detalle</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCultivos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IntroduccionCultivos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CuerpoCultivos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecomendacionesCultivos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTipoCultivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdRegiones)
-            </td>
-            <td>
-                <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCultivos">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCultivos">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCultivos">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCultivos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IntroduccionCultivos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CuerpoCultivos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecomendacionesCultivos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTipoCultivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdRegiones)
+                </td>
+                <td>
+                    <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
+                </td>
+                <td>
+                    <a class="btn btn-warning" type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
+                </td>
+                <td>
+                    <a class="btn btn-danger" type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

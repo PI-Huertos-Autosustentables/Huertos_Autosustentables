@@ -78,7 +78,7 @@ namespace Huertos_Autosustentables.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    var resultado = await _userManager.AddToRoleAsync(user, "Usuario");  // <=  Unico Rol para registrarse como USUARIO
+                    //var resultado = await _userManager.AddToRoleAsync(user, "Usuario");  // <=  Unico Rol para registrarse como USUARIO
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

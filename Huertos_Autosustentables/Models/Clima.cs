@@ -26,10 +26,12 @@ namespace Huertos_Autosustentables.Models
 
         [NotMapped]
         [DisplayName("Subir Imagen")]
+        //[Required(ErrorMessage = "Este campo es obligarorio")]
         public IFormFile ImageFile { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         [DisplayName("Imagen")]
+        //[Required(ErrorMessage = "Este campo es obligarorio")]
         public string ImageName { get; set; }
 
         //Relacion

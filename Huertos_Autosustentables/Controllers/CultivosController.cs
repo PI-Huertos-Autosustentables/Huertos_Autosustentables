@@ -24,9 +24,24 @@ namespace Huertos_Autosustentables.Controllers
         }
 
         // GET: Cultivos
-        public async Task<IActionResult> Index()
+        //consulta para los cultvios
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Cultivo.ToListAsync());
+            var cultivos = from m in _context.Cultivo
+                           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cultivos = cultivos.Where(s => s.NombreCultivos.Contains(searchString));
+            }
+
+            return View(await cultivos.ToListAsync());
+        }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
         }
 
         // GET: Cultivos/Details/5

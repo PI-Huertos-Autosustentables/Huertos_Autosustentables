@@ -70,7 +70,7 @@ namespace Huertos_Autosustentables.Controllers
                 //guarda el nombre de la imagen (ImageName)
                 clima.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
 
-                string path = Path.Combine(wwwRootPath + "/img/clima", fileName);
+                string path = Path.Combine(wwwRootPath + "/img/climas", fileName);
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await clima.ImageFile.CopyToAsync(fileStream);
@@ -159,7 +159,7 @@ namespace Huertos_Autosustentables.Controllers
         {
             var clima = await _context.Clima.FindAsync(id);
 
-            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/clima/", clima.ImageName);
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "img/climas/", clima.ImageName);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);
 
