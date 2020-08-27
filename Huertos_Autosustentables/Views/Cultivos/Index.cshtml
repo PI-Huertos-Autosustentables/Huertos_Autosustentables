@@ -72,13 +72,13 @@
                     <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
                 </td>
                 <td>
-                    <a class="btn btn-warning" type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
+                    <a class="Editar" type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
                 </td>
                 <td>
-                    <a class="btn btn-danger" type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
+                    <a  class="Detalle" type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
+                    <a class="Borrar" type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
                 </td>
             </tr>
         }

@@ -81,10 +81,60 @@
 }
 
 /*regiones*/
-.container .row .col .panel 
-{
-    width:80px;
-    height:100px;
+.container{
+    margin: 0 auto;
+    text-align: center
 }
+
+.container .row .col .panel {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center
+}
+
+.container .row .col .panel-body {
+    margin: 0 auto;
+    text-align: center
+}
+.container .row .col .panel-body #imagen-region {
+    margin: 0 auto;
+    border-radius: 25px;
+}
+.container .row .col .panel-body p {
+    margin: 0 auto;
+    padding: 5px;
+
+}
+
+.region {
+    background: #148F77;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+}
+.Editar {
+    background: #F1C40F;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.Detalle {
+    background: #2980B9;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.Borrar {
+    background: #A93226;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+
 
 

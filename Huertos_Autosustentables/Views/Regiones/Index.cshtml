@@ -4,25 +4,24 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Regiones</h1>
-
-<p>
-    <a asp-action="Create">Agregar Región</a>
+<h1>Regiones</h1>    
+<p class="agregar">
+    <a class="region" asp-action="Create">Agregar Región</a>
 </p>
-<div class="container " >
-    <div class="row ">
+<div class="container" >
+    <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col w-40 mx-auto rounded shadow-lg p-3 mb-5 rounded bg-light">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h4 class="text-center">@item.NombreRegiones</h4></div>
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center">@item.NombreRegiones</h4></div>
                     <div class="panel-body" >
-                        <img id="imagen-region" src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="img-responsive"  width="250" />
+                        <img id="imagen-region" src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill"  width="250" height="200" />
                         <p class="text-justify">@item.CaracterisitcasRegiones</p>
                         <p class="text-justify">@item.IdClima</p>
-                        <a asp-action="Edit" asp-route-id="@item.IdRegiones">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdRegiones">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdRegiones">Delete</a>
+                        <a class="Editar"  asp-action="Edit" asp-route-id="@item.IdRegiones">Editar</a> |
+                        <a class="Detalle" asp-action="Details" asp-route-id="@item.IdRegiones">Detalles</a> |
+                        <a class="Borrar"  asp-action="Delete" asp-route-id="@item.IdRegiones">Borrar</a>
                     </div>
                 </div>
             </div>
