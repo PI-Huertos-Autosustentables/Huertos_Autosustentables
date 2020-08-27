@@ -4,83 +4,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Regiones</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar Región</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreRegiones)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CaracterisitcasRegiones)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdClima)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.ImageFile)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container " >
+    <div class="row ">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreRegiones)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CaracterisitcasRegiones)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdClima)
-                </td>
-                <td>
-                    <img src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdRegiones">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.IdRegiones">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdRegiones">Delete</a>
-                </td>
-            </tr>
+            <div class="col w-40 mx-auto rounded shadow-lg p-3 mb-5 rounded bg-light">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="text-center">@item.NombreRegiones</h4></div>
+                    <div class="panel-body" >
+                        <img id="imagen-region" src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="img-responsive"  width="250" />
+                        <p class="text-justify">@item.CaracterisitcasRegiones</p>
+                        <p class="text-justify">@item.IdClima</p>
+                        <a asp-action="Edit" asp-route-id="@item.IdRegiones">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdRegiones">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdRegiones">Delete</a>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
-    <div class="Titulo">
-        <h1 class="text-white  bg-dark">Regiones</h1>
     </div>
-    <div class="card-deck">
-        <div class="card">
-            <div class="card-body bg-dark text-white">
-                <h5 class="card-title">Costa</h5>
-            </div>
-            <a href="prueba.html"><img src="~/img/Imagenes/costa.jpeg" class="card-img-top" alt="..."></a>
-        </div>
-        <div class="card ">
-            <div class="card-body bg-dark text-white">
-                <h5 class="card-title">Sierra</h5>
-            </div>
-            <a href="prueba.html"><img src="~/img/Imagenes/sierra.jpeg" class="card-img-top" alt="..."></a>
-        </div>
-        <div class="card ">
-            <div class="card-body bg-dark text-white">
-                <h5 class="card-title">Amazonía</h5>
-            </div>
-            <a href="prueba.html"><img src="~/img/Imagenes/amazonia.jpeg" class="card-img-top" alt="..."></a>
-        </div>
-        <div class="card ">
-            <div class="card-body bg-dark text-white">
-                <h5 class="card-title">Galápagos</h5>
-            </div>
-            <a href="prueba.html"><img src="~/img/Imagenes/galapagos.jpeg" class="card-img-top" alt="..."></a>
-        </div>
-    </div>
-    <div class="mensaje">
-        <h2 class="text-white bg-dark">Cultiva dependiendo de la región en la que te encuentres</h2>
-    </div>
+
+</div>

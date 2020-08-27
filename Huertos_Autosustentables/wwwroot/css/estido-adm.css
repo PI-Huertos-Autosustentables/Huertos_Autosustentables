@@ -79,3 +79,12 @@
     max-width: 100%;
     margin: 20px auto;
 }
+
+/*regiones*/
+.container .row .col .panel 
+{
+    width:80px;
+    height:100px;
+}
+
+
