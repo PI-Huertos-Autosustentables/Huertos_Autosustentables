@@ -4,20 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h3>Te encuentras en Cultivos</h3>
+<h3>Cultivos</h3>
 
-<!--Buscador y el boton de agregar-->
-
+<!--Buscador con el boton de agregar-->
 <form class="form-inline" asp-controller="Cultivos" asp-action="Index" method="get">
     <div class="form-group">
-        <input id="buscador" type="text" name="SearchString" placeholder="Buscar alimento">
-        <input id="boton" type="submit" value="Buscar" />
+        <input type="text" name="SearchString" placeholder="Buscar alimento">
+        <input  type="submit" value="Buscar" />
     </div>
 </form>
-<div class="boton-agregar">
+
+<div>
     <a  asp-action="Create">Agregar nuevo cultivo</a>
 </div>
- <table class="table table-hover bg-light  table-bordered">
+ <table class="table table-hover bg-light">
     <thead>
         <tr>
             <th>
@@ -72,13 +72,13 @@
                     <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
                 </td>
                 <td>
-                    <a class="Editar" type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
+                    <a type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
                 </td>
                 <td>
-                    <a  class="Detalle" type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
+                    <a type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
                 </td>
                 <td>
-                    <a class="Borrar" type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
+                    <a type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
                 </td>
             </tr>
         }

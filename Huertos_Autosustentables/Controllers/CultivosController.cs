@@ -9,6 +9,7 @@ using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using System.Data.Common;
 
 namespace Huertos_Autosustentables.Controllers
 {
@@ -34,9 +35,10 @@ namespace Huertos_Autosustentables.Controllers
             {
                 cultivos = cultivos.Where(s => s.NombreCultivos.Contains(searchString));
             }
-
             return View(await cultivos.ToListAsync());
+
         }
+
 
         [HttpPost]
         public string Index(string searchString, bool notUsed)

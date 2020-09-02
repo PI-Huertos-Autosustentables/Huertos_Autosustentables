@@ -3,56 +3,67 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Cultivo</h4>
+<h4>Formulario para crear un nuevo cultivo</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" method="post">
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-row">
+        <div class="form-group col-lg-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div>
                 <label asp-for="NombreCultivos" class="control-label"></label>
                 <input asp-for="NombreCultivos" class="form-control" />
                 <span asp-validation-for="NombreCultivos" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IntroduccionCultivos" class="control-label"></label>
-                <input asp-for="IntroduccionCultivos" class="form-control" />
-                <span asp-validation-for="IntroduccionCultivos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CuerpoCultivos" class="control-label"></label>
-                <input asp-for="CuerpoCultivos" class="form-control" />
-                <span asp-validation-for="CuerpoCultivos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RecomendacionesCultivos" class="control-label"></label>
-                <input asp-for="RecomendacionesCultivos" class="form-control" />
-                <span asp-validation-for="RecomendacionesCultivos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group col-lg-4">
+            <div>
                 <label asp-for="IdTipoCultivo" class="control-label"></label>
                 <select asp-for="IdTipoCultivo" class="form-control" asp-items="ViewBag.IdTipoCultivo"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="IdRegiones" class="control-label"></label>
-                <select asp-for="IdRegiones" class="form-control" asp-items="ViewBag.IdRegiones"></select>
+        </div>
+        <div class="form-group col-lg-4">
+            <div>
+                <div>
+                    <label asp-for="IdRegiones" class="control-label"></label>
+                    <select asp-for="IdRegiones" class="form-control" asp-items="ViewBag.IdRegiones"></select>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" accept="image/*" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+    <div class="form-row">
+        <div class="form-group col-lg-4">
+            <label asp-for="IntroduccionCultivos" class="control-label"></label>
+            <textarea asp-for="IntroduccionCultivos" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="IntroduccionCultivos" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4">
+            <label asp-for="CuerpoCultivos" class="control-label"></label>
+            <textarea asp-for="CuerpoCultivos" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="CuerpoCultivos" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4">
+            <label asp-for="RecomendacionesCultivos" class="control-label"></label>
+            <textarea asp-for="RecomendacionesCultivos" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="RecomendacionesCultivos" class="text-danger"></span>
+        </div>
+    </div>
+    <hr />
+    <div class="form-row">
+        <div class="form-group col-lg-12">
+            <label asp-for="ImageFile" class="control-label"></label>
+            <input asp-for="ImageFile" accept="image/*" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-12">
+            <input type="submit" value="Crear cultivo" class="btn" />
+        </div>
+    </div>
+</form>
+<hr />
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar a la lista</a>
 </div>
 
 @section Scripts {

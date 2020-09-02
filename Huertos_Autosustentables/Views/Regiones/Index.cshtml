@@ -5,8 +5,8 @@
 }
 
 <h1>Regiones</h1>    
-<p class="agregar">
-    <a class="region" asp-action="Create">Agregar Región</a>
+<p>
+    <a asp-action="Create">Agregar Región</a>
 </p>
 <div class="container" >
     <div class="row">
@@ -19,9 +19,9 @@
                         <img id="imagen-region" src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill"  width="250" height="200" />
                         <p class="text-justify">@item.CaracterisitcasRegiones</p>
                         <p class="text-justify">@item.IdClima</p>
-                        <a class="Editar"  asp-action="Edit" asp-route-id="@item.IdRegiones">Editar</a> |
-                        <a class="Detalle" asp-action="Details" asp-route-id="@item.IdRegiones">Detalles</a> |
-                        <a class="Borrar"  asp-action="Delete" asp-route-id="@item.IdRegiones">Borrar</a>
+                        <a asp-action="Edit" asp-route-id="@item.IdRegiones">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdRegiones">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdRegiones">Borrar</a>
                     </div>
                 </div>
             </div>

@@ -4,56 +4,73 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Cultivo</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+<h4>Detalles @Html.DisplayFor(model => model.NombreCultivos)</h4>
+<hr />
+<div class="row">
+    <dl class="col-lg-4">
+        <dt>
             @Html.DisplayNameFor(model => model.NombreCultivos)
         </dt>
-        <dd class="col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.NombreCultivos)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IntroduccionCultivos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IntroduccionCultivos)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CuerpoCultivos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CuerpoCultivos)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RecomendacionesCultivos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RecomendacionesCultivos)
-        </dd>
-        <dt class="col-sm-2">
+    </dl>
+    <dl class="col-lg-4">
+        <dt>
             @Html.DisplayNameFor(model => model.IdTipoCultivo)
         </dt>
-        <dd class="col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.IdTipoCultivo)
         </dd>
-        <dt class="col-sm-2">
+    </dl>
+    <dl class="col-lg-4">
+        <dt>
             @Html.DisplayNameFor(model => model.IdRegiones)
         </dt>
-        <dd class="col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.IdRegiones)
         </dd>
-        <dd class="col-auto w-25 h-25 font-weight-bold">
-            Imagen Cargada :
-        </dd>
-        <dt class="col-auto w-25 h-25">
-            <img src="@("/img/cultivo/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50" />
-        </dt>
     </dl>
 </div>
+<hr />
+<div class="row">
+    <dl class="col-lg-4">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntroduccionCultivos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntroduccionCultivos)
+        </dd>
+    </dl>
+    <dl class="col-lg-4">
+        <dt>
+            @Html.DisplayNameFor(model => model.CuerpoCultivos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CuerpoCultivos)
+        </dd>
+    </dl>
+    <dl class="col-lg-4">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecomendacionesCultivos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RecomendacionesCultivos)
+        </dd>
+    </dl>
+</div>
+<hr />
+<div class="row">
+    <dl class="col-lg-12">
+        <dt class="font-weight-bold">
+            Imagen Cargada :
+        </dt>
+        <dd class="w-100">
+            <img src="@("/img/cultivo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25"/>
+        </dd>
+    </dl>
+</div>
+<hr />
 <div>
     <a asp-action="Edit" asp-route-id="@Model.IdCultivos">Edit</a> |
     <a asp-action="Index">Back to List</a>
