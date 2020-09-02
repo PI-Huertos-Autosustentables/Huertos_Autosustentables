@@ -1,4 +1,4 @@
-﻿.Titulo {
+﻿/*.Titulo {
     padding-top: 60px;
     border-top: 3px solid white;
     border-right: 3px solid white;
@@ -31,8 +31,8 @@
 .mensaje h2 {
     text-align: center;
 }
-
-/*animacion al buscador*/
+    */
+/*animacion al buscador
 .form-inline 
 {
     align-items: center;
@@ -53,8 +53,8 @@
     border: none;
     border-radius: 4px;
     padding: 5px;
-}
-/*pregunta*/
+}*/
+/*pregunta
 .boton-agregar
 {
     padding:20px;
@@ -71,16 +71,16 @@
     width: 20%;
     text-align: center
 }
+*/
 
-
-/*Tabla*/
+/*Tabla
 .table {
     text-align: center;
     max-width: 100%;
     margin: 20px auto;
 }
-
-/*regiones*/
+*/
+/*regiones
 .container{
     margin: 0 auto;
     text-align: center
@@ -135,6 +135,6 @@
     text-decoration: none;
 }
 
-
+*/
 
 

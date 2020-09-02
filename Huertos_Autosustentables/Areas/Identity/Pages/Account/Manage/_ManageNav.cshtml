@@ -2,7 +2,7 @@
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
-<div class="bg-bluegray rounded">
+<div class="bg-bluegray rounded ">
     <ul class="nav nav-pills flex-column rounded">
         <li class="nav-item"><a class="nav-link text-white @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Perfil</a></li>
         <li class="nav-item"><a class="nav-link text-white @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Correo Electrónico</a></li>

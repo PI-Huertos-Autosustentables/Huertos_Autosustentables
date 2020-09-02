@@ -42,11 +42,11 @@ namespace Huertos_Autosustentables.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Correo electrónico incorrecta")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Contraseña incorrecta")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
