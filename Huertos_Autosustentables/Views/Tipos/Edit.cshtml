@@ -3,42 +3,44 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="m-5">
 
-<h1>Edit</h1>
+    <h1>Edit</h1>
 
-<h4>TipoCultivo</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdTipoCultivo" />
-            <div class="form-group">
-                <label asp-for="NombreTipoCultivos" class="control-label"></label>
-                <input asp-for="NombreTipoCultivos" class="form-control" />
-                <span asp-validation-for="NombreTipoCultivos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CaracteristicasTipoCultivos" class="control-label"></label>
-                <input asp-for="CaracteristicasTipoCultivos" class="form-control" />
-                <span asp-validation-for="CaracteristicasTipoCultivos" class="text-danger"></span>
-            </div>
-            <div class="col h-25">
-                Imagen Cargada :
-            </div>
-            <div class="col h-25">
-                <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
-            </div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>TipoCultivo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdTipoCultivo" />
+                <div class="form-group">
+                    <label asp-for="NombreTipoCultivos" class="control-label"></label>
+                    <input asp-for="NombreTipoCultivos" class="form-control" />
+                    <span asp-validation-for="NombreTipoCultivos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CaracteristicasTipoCultivos" class="control-label"></label>
+                    <input asp-for="CaracteristicasTipoCultivos" class="form-control" />
+                    <span asp-validation-for="CaracteristicasTipoCultivos" class="text-danger"></span>
+                </div>
+                <div class="col h-25">
+                    Imagen Cargada :
+                </div>
+                <div class="col h-25">
+                    <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
 
 @section Scripts {

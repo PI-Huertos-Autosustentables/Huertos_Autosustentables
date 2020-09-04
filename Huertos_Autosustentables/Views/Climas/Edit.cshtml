@@ -3,44 +3,46 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="m-5">
 
 <h1>Edit</h1>
 
-<h4>Clima</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdClima" />
-            <div class="form-group">
-                <label asp-for="NombreClima" class="control-label"></label>
-                <input asp-for="NombreClima" class="form-control" />
-                <span asp-validation-for="NombreClima" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CaracteristicasClima" class="control-label"></label>
-                <input asp-for="CaracteristicasClima" class="form-control" />
-                <span asp-validation-for="CaracteristicasClima" class="text-danger"></span>
-            </div>
-            <div class="col h-25">
-                Cargar Imagen :
-            </div>
-            <div class="col h-25">
-                <img src="@("/img/climas/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
-            </div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Clima</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdClima" />
+                <div class="form-group">
+                    <label asp-for="NombreClima" class="control-label"></label>
+                    <input asp-for="NombreClima" class="form-control" />
+                    <span asp-validation-for="NombreClima" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CaracteristicasClima" class="control-label"></label>
+                    <input asp-for="CaracteristicasClima" class="form-control" />
+                    <span asp-validation-for="CaracteristicasClima" class="text-danger"></span>
+                </div>
+                <div class="col h-25">
+                    Cargar Imagen :
+                </div>
+                <div class="col h-25">
+                    <img src="@("/img/climas/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</div>

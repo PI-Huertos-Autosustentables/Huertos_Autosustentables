@@ -3,84 +3,85 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="m-5">
+    <h3>Cultivos</h3>
 
-<h3>Cultivos</h3>
+    <!--Buscador con el boton de agregar-->
+    <form class="form-inline" asp-controller="Cultivos" asp-action="Index" method="get">
+        <div class="form-group">
+            <input type="text" name="SearchString" placeholder="Buscar alimento">
+            <input  type="submit" value="Buscar" />
+        </div>
+    </form>
 
-<!--Buscador con el boton de agregar-->
-<form class="form-inline" asp-controller="Cultivos" asp-action="Index" method="get">
-    <div class="form-group">
-        <input type="text" name="SearchString" placeholder="Buscar alimento">
-        <input  type="submit" value="Buscar" />
+    <div>
+        <a  asp-action="Create">Agregar nuevo cultivo</a>
     </div>
-</form>
-
-<div>
-    <a  asp-action="Create">Agregar nuevo cultivo</a>
-</div>
- <table class="table table-hover bg-light">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreCultivos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IntroduccionCultivos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CuerpoCultivos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecomendacionesCultivos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTipoCultivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdRegiones)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.ImageFile)
-            </th>
-            <th>Editar</th>
-            <th>Detalle</th>
-            <th>Borrar</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+     <table class="table table-hover bg-light">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreCultivos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IntroduccionCultivos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CuerpoCultivos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RecomendacionesCultivos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdTipoCultivo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdRegiones)
-                </td>
-                <td>
-                    <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-                </td>
-                <td>
-                    <a type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
-                </td>
-                <td>
-                    <a type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
-                </td>
-                <td>
-                    <a type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreCultivos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IntroduccionCultivos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CuerpoCultivos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecomendacionesCultivos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdTipoCultivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdRegiones)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.ImageFile)
+                </th>
+                <th>Editar</th>
+                <th>Detalle</th>
+                <th>Borrar</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreCultivos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IntroduccionCultivos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CuerpoCultivos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RecomendacionesCultivos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdTipoCultivo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdRegiones)
+                    </td>
+                    <td>
+                        <img src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
+                    </td>
+                    <td>
+                        <a type="button"  asp-action="Edit" asp-route-id="@item.IdCultivos">Editar</a> 
+                    </td>
+                    <td>
+                        <a type="button"  asp-action="Details" asp-route-id="@item.IdCultivos">Detalle</a>
+                    </td>
+                    <td>
+                        <a type="button"  asp-action="Delete" asp-route-id="@item.IdCultivos">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
