@@ -68,9 +68,10 @@ body {
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
+    white-space: nowrap;
     line-height: 50px; /* Vertically center the text there */
 }
 
@@ -81,11 +82,11 @@ body {
 
 /* Carousel base class */
 .carousel {
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-    bottom: 3rem;
+    bottom: 0rem;
     z-index: 10;
 }
 
