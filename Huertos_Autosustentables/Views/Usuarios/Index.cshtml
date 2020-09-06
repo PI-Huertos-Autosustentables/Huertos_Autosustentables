@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Huertos_Autosustentables.Models.Region>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 >Regiones</h1>
+<div class="m-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center">Costa</h4></div>
+                    <div class="panel-body">
+                        <img id="imagen-region" src="~/img/region/costa.jpg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                        <p></p>
+                        <a class="Editar" asp-action="Costa">Abrir</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center">Sierra</h4></div>
+                    <div class="panel-body">
+                        <img id="imagen-region" src="~/img/region/sierra.jpg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                        <p></p>
+                        <a class="Editar" asp-action="Sierra">Abrir</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center"></h4></div>
+                    <div class="panel-body">
+                        <img id="imagen-region" src="~/img/region/Amozonia.jpg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                        <p> </p>
+                        <a class="Editar" asp-action="Amazonia">Abrir</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center">Galápagos</h4></div>
+                    <div class="panel-body">
+                        <img id="imagen-region" src="~/img/region/Galapagos.jpg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                        <p></p>
+                        <a class="Editar" asp-action="Galapagos">Abrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Huertos_Autosustentables.Models.Cultivo>
+
+@{
+    ViewData["Title"] = "Sierra";
+}
+<div class="m-5">
+    <form class="form-inline" asp-controller="Usuarios" asp-action="Sierra" method="get">
+        <div class="form-group">
+            <input id="buscador" type="text" name="SearchString" placeholder="Buscar alimento">
+            <input id="boton" type="submit" value="Buscar" />
+        </div>
+    </form>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                <div class="panel">
+                    <div class="panel-heading "><h4 class="text-center">@item.NombreCultivos</h4></div>
+                    <div class="panel-body">
+                        <img id="imagen-cultivo" src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                        <a class="Detalle" asp-action="Detalle" asp-route-id="@item.IdCultivos ">Detalles</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+  </div>
+</div>
