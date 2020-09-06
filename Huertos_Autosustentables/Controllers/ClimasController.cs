@@ -104,7 +104,7 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdClima,NombreClima,CaracteristicasClima")] Clima clima)
+        public async Task<IActionResult> Edit(int id, [Bind("IdClima,NombreClima,CaracteristicasClima,ImageName")] Clima clima)
         {
             if (id != clima.IdClima)
             {

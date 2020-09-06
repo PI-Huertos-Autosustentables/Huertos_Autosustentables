@@ -65,6 +65,11 @@
                     <img src="@("/img/cultivo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
                 </div>
             </div>
+            <div class="form-group d-none">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input asp-for="ImageName" class="form-control" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
             <div class="form-group col-lg-12 h-25">
                 <div class="form-group col-lg-12">
                     <input type="submit" value="Guardar" />

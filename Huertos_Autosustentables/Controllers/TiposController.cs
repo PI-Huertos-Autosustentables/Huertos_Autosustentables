@@ -103,7 +103,7 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdTipoCultivo,NombreTipoCultivos,CaracteristicasTipoCultivos")] TipoCultivo tipoCultivo)
+        public async Task<IActionResult> Edit(int id, [Bind("IdTipoCultivo,NombreTipoCultivos,CaracteristicasTipoCultivos,ImageName")] TipoCultivo tipoCultivo)
         {
             if (id != tipoCultivo.IdTipoCultivo)
             {

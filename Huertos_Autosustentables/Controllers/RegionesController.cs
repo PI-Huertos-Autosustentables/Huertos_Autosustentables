@@ -104,7 +104,7 @@ namespace Huertos_Autosustentables.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdRegiones,NombreRegiones,CaracterisitcasRegiones,IdClima")] Region region)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRegiones,NombreRegiones,CaracterisitcasRegiones,IdClima,ImageName")] Region region)
         {
             if (id != region.IdRegiones)
             {

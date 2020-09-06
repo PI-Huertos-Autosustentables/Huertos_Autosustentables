@@ -11,7 +11,7 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Edit">
+            <form asp-action="Edit" enctype="multipart/form-data" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="IdClima" />
                 <div class="form-group">
@@ -29,6 +29,16 @@
                 </div>
                 <div class="col h-25">
                     <img src="@("/img/climas/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
+                </div>
+                <div class="form-group d-none">
+                    <label asp-for="ImageName" class="control-label"></label>
+                    <input asp-for="ImageName" class="form-control" />
+                    <span asp-validation-for="ImageName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" accept="image/*" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
                 </div>
                 <br />
                 <div class="form-group">

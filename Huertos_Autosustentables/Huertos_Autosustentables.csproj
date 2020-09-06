@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\clima\**" />
+    <Content Remove="wwwroot\img\clima\**" />
+    <EmbeddedResource Remove="wwwroot\img\clima\**" />
+    <None Remove="wwwroot\img\clima\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
@@ -19,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\carrusel\" />
-    <Folder Include="wwwroot\img\clima\" />
     <Folder Include="wwwroot\img\cultivo\" />
     <Folder Include="wwwroot\img\climas\" />
     <Folder Include="wwwroot\img\tipo\" />
