@@ -4,33 +4,33 @@
     ViewData["Title"] = "Details";
 }
 <div class="m-5">
-    <h1>Details</h1>
-
-    <div>
-        <h4>Clima</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
+    <h4>Detalles del clima @Html.DisplayFor(model => model.NombreClima)</h4>
+    <hr />
+    <div class="row">
+        <dl class="col-lg-6">
+            <dt>
                 @Html.DisplayNameFor(model => model.NombreClima)
             </dt>
-            <dd class="col-sm-10">
+            <dd>
                 @Html.DisplayFor(model => model.NombreClima)
             </dd>
-            <dt class="col-sm-2">
+            <dt>
                 @Html.DisplayNameFor(model => model.CaracteristicasClima)
             </dt>
-            <dd class="col-sm-10">
+            <dd>
                 @Html.DisplayFor(model => model.CaracteristicasClima)
             </dd>
-            <dd class="col-auto w-25 h-25 font-weight-bold">
+        </dl>
+        <dl class="col-lg-6">
+            <dd class="font-weight-bold">
                 Imagen Cargada :
             </dd>
-            <dt class="col-auto w-25 h-25">
-                <img src="@("/img/climas/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50" />
+            <dt class="w-100">
+                <img src="@("/img/climas/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
             </dt>
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.IdClima">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Edit" asp-route-id="@Model.IdClima">Editar</a> |
+        <a asp-action="Index">Regresar a la lista</a>
     </div></div>
