@@ -9,40 +9,23 @@
 <p>
     <a class="btn btn-success" asp-action="Create">Agregar un nuevo clima</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreClima)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CaracteristicasClima)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.ImageFile)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreClima)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CaracteristicasClima)
-            </td>
-            <td>
-                <img src="@("/img/climas/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-            </td>
-            <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> |
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdClima">Borrar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card-group col-md-3">
+            <div class="card text-justify">
+                <img class="card-img-top" src="@("/img/climas/" + item.ImageName)" asp-append-version="true" />
+                <div class="card-body">
+                    <h5 class="card-title">Clima: @Html.DisplayFor(modelItem => item.NombreClima)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.CaracteristicasClima)</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> |
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdClima">Borrar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 </div>

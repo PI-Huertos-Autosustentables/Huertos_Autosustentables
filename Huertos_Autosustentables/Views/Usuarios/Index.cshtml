@@ -3,54 +3,91 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<!--
 <div class="m-5">
-<h3 class="text-center" >Regiones</h3>
-    <div class="container"> 
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
-                <div class="panel">
-                    <div class="panel-heading "><h4 class="text-center">Costa</h4></div>
-                    <div class="panel-body">
-                        <img id="imagen-region" src="~/img/region/costa200718404.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                        <p></p>
-                        <a class="btn btn-success" asp-action="Costa">Abrir</a>
+<h3 class="text-center" >Elige la region en la cual vas a cultivar</h3>
+<div class="card-deck">
+    <div class="card rounded mx-auto d-block">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">Costa</h5>
+            <img class="card-img-top mx-auto shadow rounded-pill bg-light" src="~/img/region/costa200718404.jpeg" )" asp-append-version="true" />
+            <br /><br />
+            <a class="btn btn-success" asp-action="Costa">Abrir</a>
+        </div>
+    </div>
+    <div class="card rounded mx-auto d-block">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">Sierra</h5>
+            <img class="card-img-top mx-auto shadow rounded-pill bg-light" src="~/img/region/sierra205943722.jpeg" )" asp-append-version="true" />
+            <br /><br />
+            <a class="btn btn-success" asp-action="Sierra">Abrir</a>
+        </div>
+    </div>
+    <div class="card rounded mx-auto d-block">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">Amazonía</h5>
+            <img class="card-img-top mx-auto shadow rounded-pill bg-light" src="~/img/region/amazonia200017065.jpeg" )" asp-append-version="true" />
+            <br /><br />
+            <a class="btn btn-success" asp-action="Amazonia">Abrir</a>
+        </div>
+    </div>
+    <div class="card rounded mx-auto d-block">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">Galápagos</h5>
+            <img class="card-img-top mx-auto shadow rounded-pill bg-light" src="~/img/region/galapagos200432056.jpeg" )" asp-append-version="true" />
+            <br /><br />
+            <a class="btn btn-success" asp-action="Galapagos">Abrir</a>
+        </div>
+    </div>
+</div>
+</div>
+-->
+
+    <div class="m-5">
+        <h3 class="text-center">Regiones</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light text-center">
+                    <div class="panel">
+                        <div class="panel-heading "><h4 class="text-center">Costa</h4></div>
+                        <div class="panel-body">
+                            <img id="imagen-region" src="~/img/region/costa200718404.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                            <p></p>
+                            <a class="btn btn-success" asp-action="Costa">Abrir</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
-                <div class="panel">
-                    <div class="panel-heading "><h4 class="text-center">Sierra</h4></div>
-                    <div class="panel-body">
-                        <img id="imagen-region" src="~/img/region/sierra205943722.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                        <p></p>
-                        <a class="btn btn-success" asp-action="Sierra">Abrir</a>
+                <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light text-center">
+                    <div class="panel">
+                        <div class="panel-heading "><h4 class="text-center">Sierra</h4></div>
+                        <div class="panel-body">
+                            <img id="imagen-region" src="~/img/region/sierra205943722.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                            <p></p>
+                            <a class="btn btn-success" asp-action="Sierra">Abrir</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
-                <div class="panel">
-                    <div class="panel-heading "><h4 class="text-center">Amazonia</h4></div>
-                    <div class="panel-body">
-                        <img id="imagen-region" src="~/img/region/amazonia200017065.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                        <p> </p>
-                        <a class="btn btn-success" asp-action="Amazonia">Abrir</a>
+                <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light text-center">
+                    <div class="panel">
+                        <div class="panel-heading "><h4 class="text-center">Amazonia</h4></div>
+                        <div class="panel-body">
+                            <img id="imagen-region" src="~/img/region/amazonia200017065.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                            <p> </p>
+                            <a class="btn btn-success" asp-action="Amazonia">Abrir</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
-                <div class="panel">
-                    <div class="panel-heading "><h4 class="text-center">Galápagos</h4></div>
-                    <div class="panel-body">
-                        <img id="imagen-region" src="~/img/region/galapagos200432056.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                        <p></p>
-                        <a class="btn btn-success" asp-action="Galapagos">Abrir</a>
+                <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light text-center">
+                    <div class="panel">
+                        <div class="panel-heading "><h4 class="text-center">Galápagos</h4></div>
+                        <div class="panel-body">
+                            <img id="imagen-region" src="~/img/region/galapagos200432056.jpeg" )" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                            <p></p>
+                            <a class="btn btn-success" asp-action="Galapagos">Abrir</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

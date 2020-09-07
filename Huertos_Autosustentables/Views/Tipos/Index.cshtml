@@ -8,41 +8,25 @@
     <p>
         <a class="btn btn-success" asp-action="Create">Agregar un nuevo tipo de cultivo</a>
     </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.NombreTipoCultivos)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CaracteristicasTipoCultivos)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.ImageFile)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreTipoCultivos)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CaracteristicasTipoCultivos)
-                    </td>
-                    <td>
-                        <img src="@("/img/tipo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
-                    </td>
-                    <td>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="card-group col-md-3">
+                <div class="card text-justify">
+                    <img class="card-img-top" src="@("/img/tipo/" + item.ImageName)" asp-append-version="true" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre:@Html.DisplayFor(modelItem => item.NombreTipoCultivos)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.CaracteristicasTipoCultivos)</p>
+                    </div>
+                    <div class="card-footer">
                         <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdTipoCultivo">Editar</a> |
                         <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdTipoCultivo">Detalles</a> |
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdTipoCultivo">Borrar</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
 </div>
