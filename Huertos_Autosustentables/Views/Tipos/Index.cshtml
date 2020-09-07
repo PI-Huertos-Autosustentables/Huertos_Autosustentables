@@ -4,9 +4,9 @@
     ViewData["Title"] = "Index";
 }
 <div class="m-5">
-    <h4>Registro de tipos de cultivos</h4>
+    <h3 class="text-center">Registro de tipos de cultivos</h3>
     <p>
-        <a asp-action="Create">Agregar un nuevo tipo de cultivo</a>
+        <a class="btn btn-success" asp-action="Create">Agregar un nuevo tipo de cultivo</a>
     </p>
     <table class="table">
         <thead>
@@ -37,9 +37,9 @@
                         <img src="@("/img/tipo/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdTipoCultivo">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdTipoCultivo">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdTipoCultivo">Borrar</a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdTipoCultivo">Editar</a> |
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdTipoCultivo">Detalles</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdTipoCultivo">Borrar</a>
                     </td>
                 </tr>
             }

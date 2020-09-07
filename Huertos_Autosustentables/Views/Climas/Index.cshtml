@@ -5,9 +5,9 @@
 }
 <div class="m-5">
 
-    <h4>Registro de Climas</h4>
+    <h3 class="text-center">Registro de Climas</h3>
 <p>
-    <a asp-action="Create">Agregar un nuevo clima</a>
+    <a class="btn btn-success" asp-action="Create">Agregar un nuevo clima</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 <img src="@("/img/climas/" + item.ImageName)" asp-append-version="true" class="rounded" width="25" height="25" />
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdClima">Borrar</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdClima">Borrar</a>
             </td>
         </tr>
 }
