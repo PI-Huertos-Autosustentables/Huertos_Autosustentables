@@ -35,7 +35,7 @@ namespace Huertos_Autosustentables.Controllers
                 return View(await cultivos.ToListAsync());
             }
 
-            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 8).ToListAsync());
+            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 1).ToListAsync());
         }
 
 //Sierra
@@ -50,7 +50,7 @@ namespace Huertos_Autosustentables.Controllers
                 return View(await cultivos.ToListAsync());
             }
 
-            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 11).ToListAsync());
+            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 2).ToListAsync());
         }
 
 //Amazonia
@@ -66,7 +66,7 @@ namespace Huertos_Autosustentables.Controllers
                 return View(await cultivos.ToListAsync());
             }
 
-            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 10).ToListAsync());
+            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 3).ToListAsync());
         }
 
 //Galapagos
@@ -81,7 +81,7 @@ namespace Huertos_Autosustentables.Controllers
                 return View(await cultivos.ToListAsync());
             }
 
-            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 9).ToListAsync());
+            return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 4).ToListAsync());
         }
 
   // Pagina Principal usuario

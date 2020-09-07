@@ -12,7 +12,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div>
                     <label asp-for="NombreCultivos" class="control-label"></label>
-                    <input asp-for="NombreCultivos" class="form-control" />
+                    <input asp-for="NombreCultivos" class="form-control" placeholder="Nombre del cultivo"/>
                     <span asp-validation-for="NombreCultivos" class="text-danger"></span>
                 </div>
             </div>
@@ -34,17 +34,17 @@
         <div class="form-row">
             <div class="form-group col-lg-4">
                 <label asp-for="IntroduccionCultivos" class="control-label"></label>
-                <textarea asp-for="IntroduccionCultivos" class="form-control" rows="5"></textarea>
+                <textarea asp-for="IntroduccionCultivos" class="form-control" rows="5" placeholder="Resumen breve de la historia del cultivo"></textarea>
                 <span asp-validation-for="IntroduccionCultivos" class="text-danger"></span>
             </div>
             <div class="form-group col-lg-4">
                 <label asp-for="CuerpoCultivos" class="control-label"></label>
-                <textarea asp-for="CuerpoCultivos" class="form-control" rows="5"></textarea>
+                <textarea asp-for="CuerpoCultivos" class="form-control" rows="5" placeholder="Beneficios de la planta"></textarea>
                 <span asp-validation-for="CuerpoCultivos" class="text-danger"></span>
             </div>
             <div class="form-group col-lg-4">
                 <label asp-for="RecomendacionesCultivos" class="control-label"></label>
-                <textarea asp-for="RecomendacionesCultivos" class="form-control" rows="5"></textarea>
+                <textarea asp-for="RecomendacionesCultivos" class="form-control" rows="5" placeholder="Recomendaciones para cuidar el cultivo"></textarea>
                 <span asp-validation-for="RecomendacionesCultivos" class="text-danger"></span>
             </div>
         </div>
@@ -61,7 +61,6 @@
         </div>
     </form>
     <hr />
-
     <div>
         <a asp-action="Index">Regresar a la lista</a>
     </div>

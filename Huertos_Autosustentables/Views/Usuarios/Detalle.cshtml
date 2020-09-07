@@ -3,53 +3,49 @@
 @{
     ViewData["Title"] = "Dealle";
 }
+<div class="m-5">
+    <div class="container">
+    <h1 class="text-center">Información</h1>
+        <img class="rounded mx-auto d-block" src="@("/img/cultivo/" + Model.FK_.ImageName)" asp-append-version="true" width="250" height="200" />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th WIDTH="10" HEIGHT="50">Item</th>
+                    <th WIDTH="100" HEIGHT="50">Información</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.NombreCultivos)</td>
+                    <td HEIGHT="50" d data-label="Precio">@Html.DisplayFor(model => model.FK_.NombreCultivos)</td>
 
-<h1>Informacón</h1>
+                </tr>
+                <tr class="text-justify">
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.IntroduccionCultivos)</td>
+                    <td HEIGHT="70" d data-label="Precio">@Html.DisplayFor(model => model.FK_.IntroduccionCultivos)</td>
+                </tr>
+                <tr class="text-justify">
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.CuerpoCultivos)</td>
+                    <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.FK_.CuerpoCultivos)</td>
 
-<did >
-    <img src="@("/img/cultivo/" + Model.FK_.ImageName)" asp-append-version="true" width="250" height="200" />
-</did>
-
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th WIDTH="10" HEIGHT="50">Item</th>
-                <th WIDTH="100" HEIGHT="50">Información</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.NombreCultivos)</td>
-                <td HEIGHT="50" d data-label="Precio">@Html.DisplayFor(model => model.FK_.NombreCultivos)</td>
-
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.IntroduccionCultivos)</td>
-                <td HEIGHT="70" d data-label="Precio">@Html.DisplayFor(model => model.FK_.IntroduccionCultivos)</td>
-
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.CuerpoCultivos)</td>
-                <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.FK_.CuerpoCultivos)</td>
-
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.RecomendacionesCultivos)</td>
-                <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.FK_.RecomendacionesCultivos)</td>
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.MetrosCuadradosDetalle)</td>
-                <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.MetrosCuadradosDetalle)</td>
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.PrecioSemillasDetalle)</td>
-                <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.PrecioSemillasDetalle)</td>
-            </tr>
-            <tr>
-                <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.LugarCultivoDetalle)</td>
-                <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.LugarCultivoDetalle)</td>
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+                <tr class="text-justify">
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.FK_.RecomendacionesCultivos)</td>
+                    <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.FK_.RecomendacionesCultivos)</td>
+                </tr>
+                <tr>
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.MetrosCuadradosDetalle)</td>
+                    <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.MetrosCuadradosDetalle)</td>
+                </tr>
+                <tr>
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.PrecioSemillasDetalle)</td>
+                    <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.PrecioSemillasDetalle)</td>
+                </tr>
+                <tr>
+                    <td HEIGHT="50" data-label="Consola">@Html.DisplayNameFor(model => model.LugarCultivoDetalle)</td>
+                    <td HEIGHT="70" data-label="Precio">@Html.DisplayFor(model => model.LugarCultivoDetalle)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
