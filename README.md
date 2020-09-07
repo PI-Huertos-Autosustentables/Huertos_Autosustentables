@@ -4,8 +4,6 @@ Implementación de codigo limpio
 
 **Secretos**
 
-**NOTA: usar unicamente para fines del proyecto integrador**
-
 ==>GOOGLE
 
 PM>dotnet user-secrets set "Authentication:Google:ClientId" "966335231795-ijtuj180tdq17euc5s6brngombiaemqd.apps.googleusercontent.com" --project Huertos_Autosustentables
@@ -14,6 +12,12 @@ PM> dotnet user-secrets set "Authentication:Google:ClientSecret" "F2nGapFgY3TiWs
 
 ==>FACEBOOK
 
-PM>dotnet user-secrets set "Authentication:Facebook:AppId" "303518354083853" --project Huertos_Autosustentables
+PM>dotnet user-secrets set "Authentication:Facebook:AppId" "1205580006466843" --project Huertos_Autosustentables
 
-PM>dotnet user-secrets set "Authentication:Facebook:AppSecret" "848b675771dbbc3295c5ca02fcce8181" --project Huertos_Autosustentables
+PM>dotnet user-secrets set "Authentication:Facebook:AppSecret" "29ba648ead296d0bae1e3ac0f2b63d3d" --project Huertos_Autosustentables
+
+==>SENDGRID
+
+PM> dotnet user-secrets set SendGridKey "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" --project Huertos_Autosustentables 
+
+PM> dotnet user-secrets set SendGridUser Huertos --project Huertos_Autosustentables
