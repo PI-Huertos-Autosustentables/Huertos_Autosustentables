@@ -12,6 +12,9 @@ using Huertos_Autosustentables.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebPWrecover.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Huertos_Autosustentables.Services;
 
 namespace Huertos_Autosustentables
 {
@@ -34,6 +37,13 @@ namespace Huertos_Autosustentables
                 .AddRoles<IdentityRole>() // <= ASIGNAR ROLES
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            // requires
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            // using WebPWrecover.Services;
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
             services.AddRazorPages();
 
             services.AddAuthentication()
