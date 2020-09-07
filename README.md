@@ -4,8 +4,6 @@ Implementación de codigo limpio
 
 **Secretos**
 
-**NOTA: usar unicamente para fines del proyecto integrador**
-
 ==>GOOGLE
 
 PM>dotnet user-secrets set "Authentication:Google:ClientId" "966335231795-ijtuj180tdq17euc5s6brngombiaemqd.apps.googleusercontent.com" --project Huertos_Autosustentables
