@@ -4,16 +4,16 @@
     ViewData["Title"] = "Index";
 }
 <div class="m-5">
-    <h3 clas>Cultivos</h3>
+    <h3  class="text-center">Listado de cultivos</h3>
 
     <!--Buscador con el boton de agregar-->
     <form class="form-inline" asp-controller="Cultivos" asp-action="Index" method="get">
-        <div class="form-group rounded mx-auto d-block">
-            <input type="text" name="SearchString" placeholder="Buscar alimento">
-            <input  type="submit" value="Buscar" />
+        <div class="rounded mx-auto d-block w-75">
+            <input class="form-control w-75" type="text" name="SearchString" placeholder="Buscar alimento">
+            <input  class="btn btn-outline-info" type="submit" value="Buscar" />
         </div>
     </form>
-
+    <br />
     <p>
         <a  class="btn btn-success" asp-action="Create">Agregar un nuevo cultivo</a>
     </p>
