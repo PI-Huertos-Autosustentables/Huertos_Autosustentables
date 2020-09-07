@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
     <link href="~/css/estido-adm.css" rel="stylesheet" />
+    <link href="~/css/fondo.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -78,7 +79,7 @@
         </div>
     </nav>
 </header>
-    <div>
+    <div class="fondo-general"> 
         <main role="main" class="mt-0 mb-5">
             @RenderBody()
         </main>
@@ -89,9 +90,9 @@
         <div class="d-sm-inline-flex text-white p-0">
             <a class="nav-link text-white">&copy; 2020 - Huertos Autosustentables &nbsp;</a>
             <a class="nav-link text-white" asp-controller="Home">&nbsp;Galapagos</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Costa</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Sierra</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">&nbsp;Amazonia</a>&nbsp;&nbsp;&nbsp;
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Costa</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Sierra</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Amazonia</a>&nbsp;&nbsp;&nbsp;
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

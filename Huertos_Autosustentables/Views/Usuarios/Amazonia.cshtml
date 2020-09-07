@@ -4,27 +4,32 @@
     ViewData["Title"] = "Amazonia";
 }
 <div class="m-5">
-<form class="form-inline" asp-controller="Usuarios" asp-action="Amazonia" method="get">
-    <div class="rounded mx-auto d-block">
-        <input class="form-control w-75" type="text" name="SearchString" placeholder="Buscar alimento">
-        <input class="btn btn-outline-info" type="submit" value="Buscar" />
-    </div>
-</form>
-
-<div class="container">
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
-                <div class="panel">
-                    <div class="panel-heading "><h4 class="text-center">@item.NombreCultivos</h4></div>
-                    <div class="panel-body">
-                        <img id="imagen-cultivo" src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                        <a class="btn btn-info" asp-action="Detalle" asp-route-id="@item.IdCultivos ">Detalles</a>
-                    </div>
-                </div>
+    <h3 class="text-center">Elige el cultivo que deseas sembrar</h3>
+    <br />
+    <div class="text-center">
+        <form class="form-inline" asp-controller="Usuarios" asp-action="Amazonia" method="get">
+            <div class="rounded mx-auto d-block w-75">
+                <input class="form-control w-75" type="text" name="SearchString" placeholder="Buscar alimento">
+                <input class="btn btn-outline-info" type="submit" value="Buscar" />
             </div>
-        }
+        </form>
     </div>
-  </div>
-</div>
+        <br />
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 mb-5 rounded bg-light">
+                        <div class="panel text-center">
+                            <div class="panel-heading "><h4 class="text-center">@item.NombreCultivos</h4></div>
+                            <div class="panel-body">
+                                <img id="imagen-cultivo" src="@("/img/cultivo/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
+                                <br /><br />
+                                <a class="btn btn-info" asp-action="Detalle" asp-route-id="@item.IdCultivos ">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
