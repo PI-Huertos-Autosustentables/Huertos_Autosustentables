@@ -14,7 +14,7 @@ namespace WebPWrecover.Services
             Options = optionsAccessor.Value;
         }
 
-        public AuthMessageSenderOptions Options { get; } //set only via Secret Manager
+        public AuthMessageSenderOptions Options { get; } //Configurar solo atraves de secret manager
 
         public Task SendEmailAsync(string email, string subject, string message)
         {

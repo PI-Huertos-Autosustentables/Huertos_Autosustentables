@@ -29,7 +29,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(await _context.Clima.ToListAsync());
         }
 
-        // GET: Climas/Details/5
+        // GET: Climas/Detalles/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,15 +47,14 @@ namespace Huertos_Autosustentables.Controllers
             return View(clima);
         }
 
-        // GET: Climas/Create
+        // GET: Climas/Crear
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Climas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Climas/Crear
+        // Para protegerte de atacarques mas detalles http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Clima clima)
@@ -83,7 +82,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(clima);
         }
 
-        // GET: Climas/Edit/5
+        // GET: Climas/Editar/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,7 +98,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(clima);
         }
 
-        // POST: Climas/Edit/5
+        // POST: Climas/Editar/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -134,7 +133,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(clima);
         }
 
-        // GET: Climas/Delete/5
+        // GET: Climas/Borrar/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,7 +151,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(clima);
         }
 
-        // POST: Climas/Delete/5
+        // POST: Climas/Borrar/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

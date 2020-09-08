@@ -29,7 +29,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(await _context.Region.ToListAsync());
         }
 
-        // GET: Regiones/Details/5
+        // GET: Regiones/Detalles/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,14 +47,14 @@ namespace Huertos_Autosustentables.Controllers
             return View(region);
         }
 
-        // GET: Regiones/Create
+        // GET: Regiones/Crear
         public IActionResult Create()
         {
             ViewData["IdClima"] = new SelectList(_context.Clima, "IdClima", "NombreClima");
             return View();
         }
 
-        // POST: Regiones/Create
+        // POST: Regiones/Crear
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -83,7 +83,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(region);
         }
 
-        // GET: Regiones/Edit/5
+        // GET: Regiones/Editar/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,9 +99,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(region);
         }
 
-        // POST: Regiones/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Regiones/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdRegiones,NombreRegiones,CaracterisitcasRegiones,IdClima,ImageName")] Region region)
@@ -134,7 +132,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(region);
         }
 
-        // GET: Regiones/Delete/5
+        // GET: Regiones/Borrar/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,7 +150,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(region);
         }
 
-        // POST: Regiones/Delete/5
+        // POST: Regiones/Borrar/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

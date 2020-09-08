@@ -29,7 +29,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(await _context.TipoCultivo.ToListAsync());
         }
 
-        // GET: Tipos/Details/5
+        // GET: Tipos/Detalles/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,15 +47,14 @@ namespace Huertos_Autosustentables.Controllers
             return View(tipoCultivo);
         }
 
-        // GET: Tipos/Create
+        // GET: Tipos/Crear
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tipos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Tipos/Crear
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TipoCultivo tipoCultivo)
@@ -82,7 +81,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(tipoCultivo);
         }
 
-        // GET: Tipos/Edit/5
+        // GET: Tipos/Editar/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,9 +97,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(tipoCultivo);
         }
 
-        // POST: Tipos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Tipos/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdTipoCultivo,NombreTipoCultivos,CaracteristicasTipoCultivos,ImageName")] TipoCultivo tipoCultivo)
@@ -133,7 +130,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(tipoCultivo);
         }
 
-        // GET: Tipos/Delete/5
+        // GET: Tipos/Borrar/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -151,7 +148,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(tipoCultivo);
         }
 
-        // POST: Tipos/Delete/5
+        // POST: Tipos/Borrar/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -46,7 +46,7 @@ namespace Huertos_Autosustentables.Controllers
             return "From [HttpPost]Index: filter on " + searchString;
         }
 
-        // GET: Cultivos/Details/5
+        // GET: Cultivos/Detalles/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -64,7 +64,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(cultivo);
         }
 
-        // GET: Cultivos/Create
+        // GET: Cultivos/Crear
         public IActionResult Create()
         {
             ViewData["IdTipoCultivo"] = new SelectList(_context.TipoCultivo, "IdTipoCultivo", "NombreTipoCultivos");
@@ -73,9 +73,7 @@ namespace Huertos_Autosustentables.Controllers
             return View();
         }
 
-        // POST: Cultivos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Cultivos/Crear
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cultivo cultivo)
@@ -102,7 +100,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(cultivo);
         }
 
-        // GET: Cultivos/Edit/5
+        // GET: Cultivos/Editar/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -118,9 +116,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(cultivo);
         }
 
-        // POST: Cultivos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Cultivos/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdCultivos,NombreCultivos,IntroduccionCultivos,CuerpoCultivos,RecomendacionesCultivos,IdTipoCultivo,IdRegiones,ImageName")] Cultivo cultivo)
@@ -153,7 +149,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(cultivo);
         }
 
-        // GET: Cultivos/Delete/5
+        // GET: Cultivos/Borrar/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -171,7 +167,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(cultivo);
         }
 
-        // POST: Cultivos/Delete/5
+        // POST: Cultivos/Borrar/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
