@@ -3,10 +3,37 @@
 @{
     ViewData["Title"] = "Dealle";
 }
-<div class="m-5">
+<div class="m-4">
     <div class="container">
-    <h1 class="text-center">Información</h1>
-        <img class="rounded mx-auto d-block" src="@("/img/cultivo/" + Model.FK_.ImageName)" asp-append-version="true" width="250" height="200" />
+        <h1 class="text-center">Cultivo: @Html.DisplayFor(model => model.FK_.NombreCultivos)</h1>
+        <div class="w-50 mx-auto p-0 m-0" >
+            <div class="float-left mx-auto">
+                <img class="rounded mx-auto d-block" src="@("/img/cultivo/" + Model.FK_.ImageName)" asp-append-version="true" width="240" height="200" />
+            </div>
+            <div class="float-right mx-auto pt-5">
+                <form name="forma">
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInputGroup">Metros Cuadrados de su huerto :</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <input class="form-control" type="number" id="metros" placeholder="Tu Huerto en (m²)" />
+                            </div>
+                            <input type="button" class="form-control" value="Calcular" id="btnCalcular" onclick="Calcular()" />
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInputGroup">Metros Cuadrados de su huerto :</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <input type="number" class="form-control" id="resultado" placeholder="Aproximado de semillas" readonly />
+                            </div>
+                            <p class="input-group-text">Precio &nbsp;&nbsp;</p>
+                        </div>
+                    </div>
+                    <input type="number" value="@Html.DisplayFor(model => model.PrecioSemillasDetalle)" id="detalle" class="d-none" /> <br /> <br />
+                </form>
+            </div>
+        </div>
         <br />
         <table class="table table-hover">
             <thead>
@@ -50,3 +77,22 @@
         </table>
     </div>
 </div>
+
+<script type="text/javascript">
+
+           function Calcular() {
+                var precioDetalle = parseInt(document.getElementById("detalle").value);
+                var metrosDetalle = parseInt(document.getElementById("metros").value);
+                var input = parseInt(document.getElementById("resultado").value);
+
+            let total = parseInt(precioDetalle * metrosDetalle);
+               console.log("El Total es : " + total);
+               console.log("El Total es : " + input);
+
+               if (total != null) {
+
+                   document.forma.resultado.value = total;
+                   console.log('mostrado')
+               }
+        }
+</script>

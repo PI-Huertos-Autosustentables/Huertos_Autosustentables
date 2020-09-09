@@ -14,85 +14,85 @@
     <link href="~/css/fondo.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom shadow-lg mb-0 bg-bluegray  rounded-bottom">
-        <div class="container font-weight-light">
-            <a class="navbar-brand text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="~/img/logo.png" width="60" height="60" class="rounded" alt="Imagen no encontrada">
-                HUERTOS
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse p-2">
-                <partial name="_LoginPartial" />
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <div class="btn-outline-secondary rounded">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> &nbsp;Inicio</a>
-                        </div>
-                    </li>
-                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
-                    {
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom shadow-lg mb-0 bg-bluegray  rounded-bottom">
+            <div class="container font-weight-light">
+                <a class="navbar-brand text-white font-weight-bolder" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" width="60" height="60" class="rounded" alt="Imagen no encontrada">
+                    HUERTOS
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse p-2">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> &nbsp;Inicio</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Detalles" asp-action="Index">Detalles</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Cultivos" asp-action="Index">Cultivos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Regiones" asp-action="Index">Regiones</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Tipos" asp-action="Index">Tipos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="btn-outline-secondary rounded">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Climas" asp-action="Index">Climas</a>
-                            </div>
-                        </li>
-                    }
-                    else if (SignInManager.IsSignedIn(User))
-                    {
-                    <li class="nav-item">
-                    <div class="btn-outline-secondary">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Index">Region</a>
-                    </div>
-                    </li>
-                    }
-                </ul>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
+                        {
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Detalles" asp-action="Index">Detalles</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Cultivos" asp-action="Index">Cultivos</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Regiones" asp-action="Index">Regiones</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Tipos" asp-action="Index">Tipos</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary rounded">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Climas" asp-action="Index">Climas</a>
+                                </div>
+                            </li>
+                        }
+                        else if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <div class="btn-outline-secondary">
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Index">Región</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
-    <div class="fondo-general"> 
+        </nav>
+    </header>
+    <div class="fondo-general">
         <main role="main" class="mt-0 mb-5">
             @RenderBody()
         </main>
         <br />
     </div>
 
-    <footer class="footer bg-bluegray font-weight-light text-center" >
+    <footer class="footer bg-bluegray font-weight-light text-center">
         <div class="d-sm-inline-flex text-white p-0">
             <a class="nav-link text-white">&copy; 2020 - Huertos Autosustentables &nbsp;</a>
             <a class="nav-link text-white" asp-controller="Home">&nbsp;Galapagos</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Costa</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Sierra</a>
-            <a class="nav-link text-white" asp-area="" asp-controller="Home" >&nbsp;Amazonia</a>&nbsp;&nbsp;&nbsp;
+            <a class="nav-link text-white" asp-area="" asp-controller="Home">&nbsp;Costa</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home">&nbsp;Sierra</a>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home">&nbsp;Amazonia</a>&nbsp;&nbsp;&nbsp;
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
