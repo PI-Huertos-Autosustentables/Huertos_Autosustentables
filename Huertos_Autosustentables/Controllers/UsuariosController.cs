@@ -16,7 +16,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
-    
+
+
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,8 +25,7 @@ namespace Huertos_Autosustentables.Controllers
         {
             _context = context;
         }
-
-//Costa:
+        //Costa:
         public async Task<IActionResult> Costa(string searchString)
         {
             var cultivos = from m in _context.Cultivo
@@ -87,8 +87,8 @@ namespace Huertos_Autosustentables.Controllers
 
   // Pagina Principal usuario
 
-    [AllowAnonymous]
-    public IActionResult Index()
+       [AllowAnonymous]
+        public IActionResult Index()
         {
             return View();
         }
