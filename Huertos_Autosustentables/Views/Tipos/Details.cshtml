@@ -27,12 +27,12 @@
                 Imagen Cargada :
             </dd>
             <dt class="w-100">
-                <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-25 h-25" />
+                <img src="@("/img/tipo/" + Model.ImageName)" asp-append-version="true" class="w-50 h-50" />
             </dt>
         </dl>
     </div>
     <hr />
-    <div>
+    <div class="text-center">
         <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.IdTipoCultivo">Editar</a> |
         <a class="btn btn-info" asp-action="Index">Regresar a la lista</a>
     </div>

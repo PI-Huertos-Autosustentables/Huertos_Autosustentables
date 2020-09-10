@@ -9,9 +9,11 @@ using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ClimasController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -50,7 +50,7 @@ namespace Huertos_Autosustentables.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Recordarme?")]
             public bool RememberMe { get; set; }
         }
 
@@ -58,7 +58,7 @@ namespace Huertos_Autosustentables.Areas.Identity.Pages.Account
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
-                ModelState.AddModelError(string.Empty, ErrorMessage);
+                ModelState.AddModelError(string.Empty, ErrorMessage = "Contraseña incorrecta");
             }
 
             returnUrl = returnUrl ?? Url.Content("~/");
@@ -96,7 +96,7 @@ namespace Huertos_Autosustentables.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "El correo o la contraseña son incorrectas");
                     return Page();
                 }
             }

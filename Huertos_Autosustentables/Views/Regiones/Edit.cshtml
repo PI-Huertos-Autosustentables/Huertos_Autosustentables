@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 <div class="m-5">
-    <h4>Estas editando una región</h4>
+    <h4 class="text-center">Estas editando una región</h4>
     <hr />
     <form asp-action="Edit">
         <div class="form-row">
@@ -20,8 +20,7 @@
             <div class="form-group col-lg-4">
                 <div class="form-group">
                     <label asp-for="IdClima" class="control-label"></label>
-                    <input asp-for="IdClima" class="form-control" />
-                    <span asp-validation-for="IdClima" class="text-danger"></span>
+                    <select asp-for="IdClima" class="form-control" asp-items="ViewBag.IdClima"></select>
                 </div>
             </div>
             <div class="form-group col-lg-4">
@@ -33,7 +32,7 @@
             </div>
         </div>
         <hr />
-        <div class="form-row">
+        <div class="form-row text-center">
             <div class="form-group col h-50">
                 <div>
                     Imagen Cargada :
@@ -46,14 +45,15 @@
                     <input asp-for="ImageName" class="form-control" />
                     <span asp-validation-for="ImageName" class="text-danger"></span>
                 </div>
+                <br />
                 <div class="form-group col-lg-12">
                     <input class="btn btn-primary" type="submit" value="Guardar" />
                 </div>
-            </div>class="btn btn-info"
+            </div>
         </div>
     </form>
     <hr />
-    <div>
+    <div class="text-center">
         <a class="btn btn-info" asp-action="Index">Regresar a la lista</a>
     </div>
 </div>

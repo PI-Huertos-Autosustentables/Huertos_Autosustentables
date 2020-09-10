@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 <div class="m-5">
-    <h4>Crear región</h4>
+    <h4 class="text-center">Crear región</h4>
     <hr />
     <form asp-action="Create" enctype="multipart/form-data" method="post">
         <div class="form-row">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <hr />
-        <div class="form-row">
+        <div class="form-row text-center">
             <div class="form-group col-lg-12 rounded mx-auto d-block">
                 <label asp-for="ImageFile" class="control-label"></label>
                 <input asp-for="ImageFile" accept="image/*" />
@@ -43,7 +43,7 @@
         </div>   
     </form>
     <hr />
-    <div>
+    <div class="text-center">
         <a class="btn btn-info" asp-action="Index">Regresar a la lista</a>
     </div>
 </div>

@@ -4,7 +4,7 @@
 }
 
 <div class="m-5">
-    <h4>Formulario para crear un nuevo cultivo</h4>
+    <h4 class="text-center">Formulario para crear un nuevo cultivo</h4>
     <hr />
     <form asp-action="Create" enctype="multipart/form-data" method="post">
         <div class="form-row">
@@ -49,19 +49,19 @@
             </div>
         </div>
         <hr />
-        <div class="form-row">
+        <div class="form-row text-center">
             <div class="form-group col-lg-12">
                 <label asp-for="ImageFile" class="control-label"></label>
                 <input asp-for="ImageFile" accept="image/*" />
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
             <div class="form-group col-lg-12">
-                <input class="btn btn-success" type="submit" value="Crear cultivo" class="btn" />
+                <input class="btn btn-success" type="submit" value="Crear cultivo" />
             </div>
         </div>
     </form>
     <hr />
-    <div>
+    <div class="text-center">
         <a class="btn btn-info" asp-action="Index">Regresar a la lista</a>
     </div>
 </div>

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Huertos_Autosustentables.Controllers
 {
-    //[Authorize(Roles = "Administrador")]
+    [Authorize(Roles = "Administrador")]
     public class RolesController : Controller
     {
         //Encapsular los atribulos

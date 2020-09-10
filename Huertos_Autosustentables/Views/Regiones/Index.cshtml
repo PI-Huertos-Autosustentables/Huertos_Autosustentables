@@ -5,29 +5,31 @@
 }
 
 <div class="m-5">
-    <h3 class="text-center">Regiones</h3>
-    <p>
+    <h3 class="text-center">Regiones del Ecuador</h3>
+    <hr />
+    <p class="text-center">
         <a class="btn btn-success" asp-action="Create">Agregar una nueva Región</a>
     </p>
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-lg-3 col-sm-6 col-12 w-25 mx-auto rounded shadow p-3 rounded bg-light">
-                    <div class="panel">
-                        <div class="panel-heading "><h4 class="text-center">@item.NombreRegiones</h4></div>
-                        <div class="panel-body">
-                            <img id="imagen-region" src="@("/img/region/" + item.ImageName)" asp-append-version="true" class="img-responsive rounded-pill" width="250" height="200" />
-                            <p class="text-justify">@item.CaracterisitcasRegiones</p>
-                            <p class="text-justify">@item.IdClima</p>
-                            <a class="btn btn-warning"  asp-action="Edit" asp-route-id="@item.IdRegiones">Editar</a> |
-                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdRegiones">Detalles</a> |
+                <div class="card-group col-md-6 col-lg-3">
+                    <div class="card text-justify">
+                        <img class="card-img-top" src="@("/img/region/" + item.ImageName)" asp-append-version="true" />
+                        <div class="card-body">
+                            <h4 class="card-title">@item.NombreRegiones</h4>
+                            <p class="card-text">@item.CaracterisitcasRegiones</p>
+                            <select asp-for="@item.IdClima" disabled="disabled" style="background-color: transparent; border:none; -webkit-appearance: none; opacity:1" asp-items="ViewBag.IdClima"></select>
+                        </div>
+                        <div class="card-footer text-center p-2">
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdRegiones">Editar</a>
+                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdRegiones">Detalles</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdRegiones">Borrar</a>
                         </div>
                     </div>
                 </div>
             }
         </div>
-
     </div>
 </div>

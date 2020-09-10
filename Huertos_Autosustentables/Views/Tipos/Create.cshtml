@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 <div class="m-5">
-    <h4>Formulario para crear un nuevo tipo de cultivo</h4>
+    <h4 >Formulario para crear un nuevo tipo de cultivo</h4>
     <hr />
     <form asp-action="Create" enctype="multipart/form-data" method="post">
         <div class="form-row">
@@ -27,9 +27,9 @@
         <div class="form-row">
             <div class="form-group custom-file col-lg-6">
                 <input class="form-control custom-file-input" asp-for="ImageFile" accept="image/*" />
-                <label class="custom-file-label">Elegir Imagen</label>
+                <label class="custom-file-label"></label>
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>
+            </div>        
             <br /><br />
             <div class="form-group col-lg-12">
                 <input class="btn btn-success" type="submit" value="Crear" />
@@ -37,9 +37,18 @@
         </div>
     </form>
     <hr />
-    <div>
+    <div >
         <a class="btn btn-info" asp-action="Index">Regresar a la lista</a>
     </div>
 </div>
 
-
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}

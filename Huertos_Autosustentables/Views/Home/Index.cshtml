@@ -52,7 +52,7 @@
             </div>
             @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrador"))
             {
-                <h3 class="p-3 bg-bluegray text-white text-center shadow-lg">Bienvenido <i class="fas fa-feather-alt"></i> @User.Identity.Name</h3>
+                <h3 class="p-3 bg-bluegray text-white text-center shadow-lg">Administrador <i class="fas fa-feather-alt"></i> @User.Identity.Name</h3>
             }
             else if (SignInManager.IsSignedIn(User) && User.IsInRole("Usuario"))
             {

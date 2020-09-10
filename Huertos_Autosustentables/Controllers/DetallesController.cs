@@ -9,9 +9,11 @@ using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class DetallesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,6 +29,7 @@ namespace Huertos_Autosustentables.Controllers
         // GET: Detalles
         public async Task<IActionResult> Index()
         {
+            ViewData["IdCultivo"] = new SelectList(_context.Cultivo, "IdCultivos", "NombreCultivos");
             return View(await _context.DetalleUsersCultivo.Include(d => d.User).ToListAsync()); //<=Recuperado datos del USUARIO
         }
 
@@ -44,7 +47,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdCultivo"] = new SelectList(_context.Cultivo, "IdCultivos", "NombreCultivos");
             return View(detalleUsersCultivo);
         }
 
@@ -96,6 +99,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdCultivo"] = new SelectList(_context.Cultivo, "IdCultivos", "NombreCultivos");
             return View(detalleUsersCultivo);
         }
 
@@ -129,6 +133,7 @@ namespace Huertos_Autosustentables.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             return View(detalleUsersCultivo);
         }
 
@@ -146,7 +151,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdCultivo"] = new SelectList(_context.Cultivo, "IdCultivos", "NombreCultivos");
             return View(detalleUsersCultivo);
         }
 

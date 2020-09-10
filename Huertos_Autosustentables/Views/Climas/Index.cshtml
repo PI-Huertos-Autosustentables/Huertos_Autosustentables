@@ -16,12 +16,11 @@
             <div class="card text-justify">
                 <img class="card-img-top" src="@("/img/climas/" + item.ImageName)" asp-append-version="true" />
                 <div class="card-body">
-                    <h5 class="card-title">Clima: @Html.DisplayFor(modelItem => item.NombreClima)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.CaracteristicasClima)</p>
+                    <h5 class="card-title text-center">@Html.DisplayFor(modelItem => item.NombreClima)</h5>
                 </div>
-                <div class="card-footer">
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> |
-                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> |
+                <div class="card-footer text-center">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.IdClima">Editar</a> 
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdClima">Detalles</a> 
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdClima">Borrar</a>
                 </div>
             </div>

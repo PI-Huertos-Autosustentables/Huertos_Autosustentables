@@ -10,9 +10,11 @@ using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Data.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class CultivosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,6 +37,8 @@ namespace Huertos_Autosustentables.Controllers
             {
                 cultivos = cultivos.Where(s => s.NombreCultivos.Contains(searchString));
             }
+            ViewData["IdTipoCultivo"] = new SelectList(_context.TipoCultivo, "IdTipoCultivo", "NombreTipoCultivos");
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(await cultivos.ToListAsync());
 
         }
@@ -60,7 +64,8 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdTipoCultivo"] = new SelectList(_context.TipoCultivo, "IdTipoCultivo", "NombreTipoCultivos");
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(cultivo);
         }
 
@@ -113,6 +118,8 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdTipoCultivo"] = new SelectList(_context.TipoCultivo, "IdTipoCultivo", "NombreTipoCultivos");
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(cultivo);
         }
 
@@ -163,7 +170,8 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdTipoCultivo"] = new SelectList(_context.TipoCultivo, "IdTipoCultivo", "NombreTipoCultivos");
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(cultivo);
         }
 

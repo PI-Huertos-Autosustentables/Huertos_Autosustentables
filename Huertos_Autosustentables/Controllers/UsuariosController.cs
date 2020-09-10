@@ -12,10 +12,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
+    
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -34,7 +35,7 @@ namespace Huertos_Autosustentables.Controllers
                 cultivos = cultivos.Where(s => s.NombreCultivos.Contains(searchString));
                 return View(await cultivos.ToListAsync());
             }
-
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 1).ToListAsync());
         }
 
@@ -49,7 +50,7 @@ namespace Huertos_Autosustentables.Controllers
                 cultivos = cultivos.Where(s => s.NombreCultivos.Contains(searchString));
                 return View(await cultivos.ToListAsync());
             }
-
+            ViewData["IdRegiones"] = new SelectList(_context.Region, "IdRegiones", "NombreRegiones");
             return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 2).ToListAsync());
         }
 
@@ -69,7 +70,7 @@ namespace Huertos_Autosustentables.Controllers
             return View(await _context.Cultivo.Where(cultivo => cultivo.IdRegiones == 3).ToListAsync());
         }
 
-//Galapagos
+        //Galapagos
         public async Task<IActionResult> Galapagos(string searchString)
         {
             var cultivos = from m in _context.Cultivo
@@ -86,19 +87,13 @@ namespace Huertos_Autosustentables.Controllers
 
   // Pagina Principal usuario
 
+    [AllowAnonymous]
     public IActionResult Index()
         {
             return View();
         }
-   
-      /* [HttpPost]
-        public string Sierra(string searchString, bool notUsed)
-        {
-            return "From [HttpPost]Sierra: filter on " + searchString;
-        }*/
 
- // GET: Cultivos/Dealle/
-
+        [Authorize(Roles = "Usuario,Administrador")]
         public async Task<IActionResult> Detalle(int? id)
         {
             if (id == null)
@@ -120,6 +115,7 @@ namespace Huertos_Autosustentables.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Create([Required] string NombreCultivos, string IntroduccionCultivos,
           string CuerpoCultivos, string RecomendacionesCultivos, int IdTipoCultivo, int IdRegiones)
         {

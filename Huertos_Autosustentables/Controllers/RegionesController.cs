@@ -9,9 +9,11 @@ using Huertos_Autosustentables.Data;
 using Huertos_Autosustentables.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Huertos_Autosustentables.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class RegionesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,6 +28,7 @@ namespace Huertos_Autosustentables.Controllers
         // GET: Regiones
         public async Task<IActionResult> Index()
         {
+            ViewData["IdClima"] = new SelectList(_context.Clima, "IdClima", "NombreClima");
             return View(await _context.Region.ToListAsync());
         }
 
@@ -43,7 +46,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdClima"] = new SelectList(_context.Clima, "IdClima", "NombreClima");
             return View(region);
         }
 
@@ -96,6 +99,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdClima"] = new SelectList(_context.Clima, "IdClima", "NombreClima");
             return View(region);
         }
 
@@ -146,7 +150,7 @@ namespace Huertos_Autosustentables.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["IdClima"] = new SelectList(_context.Clima, "IdClima", "NombreClima");
             return View(region);
         }
 
